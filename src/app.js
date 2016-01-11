@@ -35,5 +35,27 @@ function config($stateProvider, $urlRouterProvider) {
     template: '<qf-home></qf-home>'
   })
 
+  .state('exercise', {
+    url: '/exercise/:exercise',
+    abstract: true,
+    template: '<qf-exercise></qf-exercise>'
+  })
+
+  .state('exercise.difficulty', {
+    url: '/difficulty',
+    views: {
+      'exercise': {
+        template: '<qf-exercise-difficulty></qf-exercise-difficulty>'
+      }
+    }
+  })
+
+  .state('workout', {
+    url: '/workout/:workout',
+    abstract: true,
+    template: '<qf-workout></qf-workout>'
+  })
+
+
   $urlRouterProvider.otherwise('/');
 }

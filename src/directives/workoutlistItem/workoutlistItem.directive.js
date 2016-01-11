@@ -10,7 +10,8 @@ function qfWorkoutlistItem() {
     scope: {
       workouts: '=list',
       color: '=',
-      colorString: '@'
+      colorString: '@',
+      type: '@'
     },
     link: (scope, elem, attrs) => {
       scope.convertColors = convertColors;

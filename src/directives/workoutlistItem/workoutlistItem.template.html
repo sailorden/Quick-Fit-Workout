@@ -4,6 +4,6 @@
     <span class='col col-80'>{{workout}}</span>
     <!-- <span class='col col-20 go-alt'>Go!</span> -->
     <!-- <span class='col col-20 go'>Go!</span> -->
-    <span class='col col-20' style='background-color: {{convertColors("green", "rgb(255,165,0)", workouts.length)[$index]}}'>Go!</span>
+    <span class='col col-20' style='background-color: {{convertColors("green", "rgb(255,165,0)", workouts.length)[$index]}}' ui-sref='{{type}}.difficulty({ {{type}}: workout})'>Go!</span>
   </div>
 </li>
