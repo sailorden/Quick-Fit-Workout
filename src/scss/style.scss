@@ -1,0 +1,46 @@
+.no-padding {
+  padding: 0;
+}
+
+.home-list-header {
+  font-size: 3em;
+  text-align: center;
+  padding: 15px 0 15px;
+  font-weight: 200;
+  line-height: 1em;
+  color: white;
+}
+
+.back-green {
+  background-color: rgb(38,202,38);//#26CA26;
+}
+
+.back-blue {
+  background-color: rgb(42,184,255);//#2AB8FF;
+}
+
+.workout-list-item {
+  text-align: center;
+  font-size: 2em;
+  line-height: 1em;
+  font-weight: 200;
+  color: white;
+  background-color: gray;
+
+  span {
+    padding: 15px 0 15px;
+    font-size: 1.1em;
+  }
+}
+
+.go {
+  background-color: orange;
+}
+
+.odd-go {
+  background-color: orange;
+}
+
+.go-alt {
+  color: orange;
+}

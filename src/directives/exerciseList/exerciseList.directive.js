@@ -9,7 +9,10 @@ function qfExerciseList(Workouts) {
   return {
     restrict: 'E',
     scope: {},
-    link: (scope, elem, attrs) => scope.list = Workouts.getExercises(),
+    link: (scope, elem, attrs) => {
+      scope.list = Workouts.getExercises();
+      scope.headerColor = 'rgb(62,62,255)'
+    },
     templateUrl: 'directives/exerciseList/exerciseList.template.html'
   };
 }
