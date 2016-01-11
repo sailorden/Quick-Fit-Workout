@@ -50,6 +50,20 @@ function config($stateProvider, $urlRouterProvider) {
     }
   })
 
+  .state('exercise.display', {
+    url: '/display/:difficulty',
+    views: {
+      'exercise': {
+        template: '<qf-exercise-display></qf-exercise-display>'
+      }
+    },
+    resolve: {
+      dummy: ($stateParams, Util) => {
+        return Util.setReps($stateParams.difficulty);
+      }
+    }
+  })
+
   .state('workout', {
     url: '/workout/:workout',
     abstract: true,

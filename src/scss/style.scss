@@ -60,16 +60,19 @@
   height: 100%;
 }
 
-.difficulty-button {
-  font-size: 3em;
+.flat-button {
   display: block;
-  width: 70%;
-  margin: 0 auto;
-  background-color: transparent;
+  border: none;
   color: white;
   font-weight: 200;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.difficulty-button {
+  font-size: 3em;
+  width: 70%;
   margin-top: 0.5em;
-  border: none;
 
   &.medium-button {
     background-color: green;
@@ -86,5 +89,26 @@
       font-size: 0.7em;
       font-weight: bold;
     }
+  }
+}
+
+.rep-goal {
+  font-size: 12em;
+  text-align: center;
+  line-height: 1em;
+  color: black;
+  font-weight: 100;
+  margin: 0.1em 0 0.4em;
+}
+
+.reps-done-button {
+  font-size: 3.5em;
+  background-color: #8B008B;
+  box-shadow: 0 4px 13px 2px black;
+  margin-top: -5px;
+
+  &:active {
+    box-shadow: 0 1px 13px 0 black;
+    margin-top: 0px;
   }
 }
