@@ -50,3 +50,41 @@
   padding: 1em 0;
   font-weight: 200;
 }
+
+.back-orange {
+  background-color: orange;
+}
+
+.difficulty-button-container {
+  padding-top: 3em;
+  height: 100%;
+}
+
+.difficulty-button {
+  font-size: 3em;
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  background-color: transparent;
+  color: white;
+  font-weight: 200;
+  margin-top: 0.5em;
+  border: none;
+
+  &.medium-button {
+    background-color: green;
+  }
+
+  &.hard-button {
+    background-color: red;
+  }
+
+  &.max-button {
+    background-color: black;
+
+    .max-display {
+      font-size: 0.7em;
+      font-weight: bold;
+    }
+  }
+}
