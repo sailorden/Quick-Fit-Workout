@@ -15,15 +15,9 @@ function qfWorkoutList() {
   };
 }
 
-WorkoutListCtrl.$inject = [];
-function WorkoutListCtrl() {
+WorkoutListCtrl.$inject = ['Workouts'];
+function WorkoutListCtrl(Workouts) {
   let vmWorkoutList = this;
 
-  vmWorkoutList.list = [
-    'Cardio',
-    'Full Body',
-    'Lower Body',
-    'Upper Body',
-    'Get Exhausted'
-  ];
+  vmWorkoutList.list = Workouts.getWorkouts();
 }

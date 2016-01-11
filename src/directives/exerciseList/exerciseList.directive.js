@@ -15,20 +15,9 @@ function qfExerciseList() {
   };
 }
 
-ExerciseListCtrl.$inject = [];
-function ExerciseListCtrl() {
+ExerciseListCtrl.$inject = ['Workouts'];
+function ExerciseListCtrl(Workouts) {
   let vmExerciseList = this;
 
-  vmExerciseList.list = [
-    'Pushups',
-    'Crunches',
-    'Pull Ups',
-    'Lunges',
-    'Jumping Jacks',
-    'Bicep Curls',
-    'Arms Raises',
-    'Military Press',
-    'Burpees',
-    'Leg Lifts'
-  ];
+  vmExerciseList.list = Workouts.getExercises();
 }
