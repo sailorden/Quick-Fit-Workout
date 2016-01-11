@@ -4,20 +4,12 @@ angular.module('quickfit')
 
 .directive('qfExerciseList', qfExerciseList);
 
-function qfExerciseList() {
+qfExerciseList.$inject = ['Workouts'];
+function qfExerciseList(Workouts) {
   return {
     restrict: 'E',
     scope: {},
-    bindToController: {},
-    controller: ExerciseListCtrl,
-    controllerAs: 'vmExerciseList',
+    link: (scope, elem, attrs) => scope.list = Workouts.getExercises(),
     templateUrl: 'directives/exerciseList/exerciseList.template.html'
   };
-}
-
-ExerciseListCtrl.$inject = ['Workouts'];
-function ExerciseListCtrl(Workouts) {
-  let vmExerciseList = this;
-
-  vmExerciseList.list = Workouts.getExercises();
 }
