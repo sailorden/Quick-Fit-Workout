@@ -2,7 +2,11 @@
 
 angular.module('quickfit', ['ionic'])
 
-.run(($ionicPlatform) => {
+.run(run)
+.config(config);
+
+run.$inject = ['$ionicPlatform'];
+function run($ionicPlatform) {
   $ionicPlatform.ready(() => {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -18,4 +22,18 @@ angular.module('quickfit', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+}
+
+
+config.$inject = ['$stateProvider', '$urlRouterProvider'];
+function config($stateProvider, $urlRouterProvider) {
+
+  $stateProvider
+
+  .state('home', {
+    url: '/',
+    template: '<qf-home></qf-home>'
+  })
+
+  $urlRouterProvider.otherwise('/');
+}
