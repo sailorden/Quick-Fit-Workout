@@ -2,6 +2,11 @@
   padding: 0;
 }
 
+.disabled-button {
+  background-color: gray !important;
+  box-shadow: none !important;
+}
+
 .home-list-header {
   font-size: 3em;
   text-align: center;
@@ -101,9 +106,7 @@
   margin: 0.1em 0 0.4em;
 }
 
-.reps-done-button {
-  font-size: 3.5em;
-  background-color: #8B008B;
+.button-shadow {
   box-shadow: 0 4px 13px 2px black;
   margin-top: -5px;
 
@@ -112,3 +115,61 @@
     margin-top: 0px;
   }
 }
+
+.reps-done-button {
+  font-size: 3.5em;
+  background-color: #8B008B;
+}
+
+.i-did {
+  font-size: 3em;
+  line-height: 1em;
+  padding-top: 0.5em;
+}
+
+.exercise-done-rep-container {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 1em;
+
+  button {
+    font-size: 11vh;
+    width: 70%;
+    line-height: 1em;
+    background-color: green;
+  }
+}
+
+.exercise-done-nonrep-container {
+  position: absolute;
+  width: 100%;
+  margin-top: 9em;
+
+  input {
+    display: inline;
+    height: 11vh;
+    border: none;
+    padding: 0;
+    width: 40%;
+    margin-right: -2px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 3em;
+    line-height: 1em;
+  }
+
+  button {
+    background-color: blue;
+    height: 11vh;
+    display: inline;
+    width: 30%;
+    margin-left: -1px;
+    font-size: 2em;
+
+    &:active {
+      background-color: darkblue;
+    }
+  }
+}
+

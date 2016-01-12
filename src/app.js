@@ -64,6 +64,15 @@ function config($stateProvider, $urlRouterProvider) {
     }
   })
 
+  .state('exercise.done', {
+    url: '/done',
+    views: {
+      'exercise': {
+        template: '<qf-exercise-done></qf-exercise-done>'
+      }
+    }
+  })
+
   .state('workout', {
     url: '/workout/:workout',
     abstract: true,
