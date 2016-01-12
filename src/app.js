@@ -77,6 +77,7 @@ function config($stateProvider, $urlRouterProvider) {
   .state('workout', {
     url: '/workout/:workout',
     abstract: true,
+    cache: false,
     template: '<qf-workout></qf-workout>'
   })
 
