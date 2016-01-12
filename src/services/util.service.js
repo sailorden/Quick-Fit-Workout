@@ -31,7 +31,7 @@ function Util() {
     else if (colorString === 'blue') rgbIndex = 2;
     for (let i=0; i<length; i++) {
       baseColorArr = baseColor.split(/[()]/);
-      console.log(baseColorArr);
+      // console.log(baseColorArr);
       rgbArr = baseColorArr[1].split(',');
       rgbArr[rgbIndex] -= 15 * (i+1);
       colorsArr.push(`rgb(${rgbArr.join(',')})`);

@@ -4,14 +4,14 @@ angular.module('quickfit')
 
 .directive('qfWorkoutExercising', qfWorkoutExercising);
 
-function qfWorkoutExercising() {
+qfWorkoutExercising.$inject =['$state', 'Workouts'];
+function qfWorkoutExercising($state, Workouts) {
   return {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
-      scope.exercise = 'Pushups';
-      scope.rep = 20;
-      scope.time = null;
+      scope.workout = Workouts.getNextInWorkout();
+      scope.getNext = () => scope.workout = Workouts.getNextInWorkout() || (Workouts.resetCounter(), $state.go('home'));
     },
     templateUrl: 'directives/workoutExercising/workoutExercising.template.html'
   };

@@ -1,7 +1,7 @@
 <ion-view>
   <ion-content scroll='false' class='back-yellow'>
-    <div class='workout-exercise-title'> {{exercise}} </div>
-    <div class='workout-exercise-reptime'> {{rep || time}} </div>
-    <button class='flat-button next-button'>Next</button>
+    <div class='workout-exercise-title'> {{workout.exercise}} </div>
+    <div class='workout-exercise-reptime'> {{workout.reps || workout.time}} </div>
+    <button class='flat-button next-button' ng-click='getNext()'>Next</button>
   </ion-content>
 </ion-view>
