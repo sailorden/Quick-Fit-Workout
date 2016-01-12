@@ -24,6 +24,10 @@
   background-color: rgb(42,184,255);//#2AB8FF;
 }
 
+.back-yellow {
+  background-color: yellow;
+}
+
 .workout-list-item {
   text-align: center;
   font-size: 2em;
@@ -173,3 +177,42 @@
   }
 }
 
+.workout-header {
+  text-align: center;
+  background-color: green;
+  color: white;
+  font-size: 10vh;
+  line-height: 1em;
+  padding: 10vh 0;
+  font-weight: 200;
+  height: 30vh;
+}
+
+.workout-start {
+  font-size: 4em;
+  margin-top: 25vh;
+  background-color: green;
+  width: 50%;
+}
+
+.next-button {
+  font-size: 6vh;
+  width: 50%;
+  background-color: green;
+  margin-top: 15vh;
+}
+
+.workout-exercise-title {
+  font-size: 6vh;
+  text-align: center;
+  line-height: 1em;
+  margin-top: 2vh;
+}
+
+.workout-exercise-reptime {
+  font-size: 24vh;
+  text-align: center;
+  line-height: 1em;
+  margin-top: 5vh;
+  font-weight: 100;
+}
