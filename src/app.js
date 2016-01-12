@@ -90,6 +90,15 @@ function config($stateProvider, $urlRouterProvider) {
     }
   })
 
+  .state('workout.exercising', {
+    url: '/exercising',
+    views: {
+      'workout': {
+        template: '<qf-workout-exercising></qf-workout-exercising>'
+      }
+    }
+  })
+
 
   $urlRouterProvider.otherwise('/');
 }
