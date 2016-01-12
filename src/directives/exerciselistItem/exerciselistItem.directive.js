@@ -2,21 +2,21 @@
 
 angular.module('quickfit')
 
-.directive('qfWorkoutlistItem', qfWorkoutlistItem);
+.directive('qfExerciselistItem', qfExerciselistItem);
 
-function qfWorkoutlistItem() {
+function qfExerciselistItem() {
   return {
     restrict: 'E',
     scope: {
-      workouts: '=list',
+      exercises: '=list',
       color: '=',
-      colorString: '@',
+      colorString: '@'
     },
     link: (scope, elem, attrs) => {
       scope.convertColors = convertColors;
-      scope.colors = convertColors(scope.colorString, scope.color, scope.workouts.length);
+      scope.colors = convertColors(scope.colorString, scope.color, scope.exercises.length);
     },
-    templateUrl: 'directives/workoutlistItem/workoutlistItem.template.html'
+    templateUrl: 'directives/exerciselistItem/exerciselistItem.template.html'
   };
 }
 

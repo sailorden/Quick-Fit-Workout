@@ -8,11 +8,11 @@ Workouts.$inject = [];
 function Workouts() {
 
   let workouts = [
+    '5 Minute Burn',
     'Cardio',
     'Full Body',
     'Lower Body',
-    'Upper Body',
-    'Get Exhausted'
+    'Upper Body'
   ];
   let exercises = [
     'Pushups',

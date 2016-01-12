@@ -38,6 +38,7 @@ function config($stateProvider, $urlRouterProvider) {
   .state('exercise', {
     url: '/exercise/:exercise',
     abstract: true,
+    cache: false,
     template: '<qf-exercise></qf-exercise>'
   })
 
@@ -77,6 +78,15 @@ function config($stateProvider, $urlRouterProvider) {
     url: '/workout/:workout',
     abstract: true,
     template: '<qf-workout></qf-workout>'
+  })
+
+  .state('workout.start', {
+    url: '/start',
+    views: {
+      'workout': {
+        template: '<qf-workout-start></qf-workout-start>'
+      }
+    }
   })
 
 
