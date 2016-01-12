@@ -1,7 +1,10 @@
 <ion-view>
   <ion-content scroll='false' class='back-yellow'>
     <div class='workout-exercise-title'> {{workout.exercise}} </div>
-    <div class='workout-exercise-reptime'> {{workout.reps || workout.time}} </div>
-    <button class='flat-button next-button' ng-click='getNext()'>Next</button>
+    <div class='workout-exercise-reptime' ng-if='workout.reps'> {{workout.reps}}</div>
+    <div class='workout-exercise-reptime' ng-if='workout.time'>
+      <qf-timer></qf-timer>
+    </div>
+    <button class='flat-button next-button' ng-click='getNext()' ng-if='workout.reps'>Next</button>
   </ion-content>
 </ion-view>

@@ -49,8 +49,9 @@ function Workouts() {
     workout = [
       { exercise: exercises[0], reps: 20, time: null },
       { exercise: exercises[1], reps: 30, time: null },
+      { exercise: 'Rest', reps: null, time: 10 },
       { exercise: exercises[8], reps: 10, time: null },
-      { exercise: exercises[4], reps: null, time: 30 },
+      { exercise: exercises[4], reps: null, time: 10 },
       null
     ];
   }
