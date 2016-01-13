@@ -4,14 +4,26 @@ angular.module('quickfit')
 
 .directive('qfExerciseDone', qfExerciseDone);
 
-qfExerciseDone.$inject = ['Util'];
-function qfExerciseDone(Util) {
+qfExerciseDone.$inject = ['$state', '$stateParams', 'User', 'Util'];
+function qfExerciseDone($state, $stateParams, User, Util) {
   return {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
       scope.repGoal = Util.getReps();
       scope.printchanged = (num) => console.log(num);
+      scope.recordReps = function(repsDone) {
+        // still need to save reps to log
+        let currentMax = User.getMax($stateParams.exercise);
+        console.log('currentMax', currentMax);
+        console.log('reps done', repsDone);
+        if (currentMax < repsDone) {
+          console.log(`You beat your max!! ${currentMax} --> ${repsDone}`);
+          User.updateMax($stateParams.exercise, {max: repsDone, date: moment().format('MM/DD/YYYY')});
+        } else if ($stateParams.difficulty === 'max')
+          console.log('You did not beat your max :(, better luck next time');
+        $state.go('home');
+      };
     },
     templateUrl: 'directives/exerciseDone/exerciseDone.template.html'
   };

@@ -1,8 +1,12 @@
 <ion-view>
   <ion-content class='back-orange' scroll='false'>
-    <div class='rep-goal'> {{repGoal}} </div>
+    <div class='rep-goal' ng-if='difficulty != "max"'> {{repGoal}} </div>
+    <div ng-if='difficulty == "max"'>
+      <p class='beat-current-max'> Beat your current max of </p>
+      <div class='rep-goal'>{{currentMax}}</div>
+    </div>
     <div class='text-center'>
-      <button class='flat-button reps-done-button button-shadow' ui-sref='exercise.done'>Done!</button>
+      <button class='flat-button reps-done-button button-shadow' ui-sref='exercise.done({difficulty: difficulty})'>Done!</button>
     </div>
   </ion-content>
 </ion-view>

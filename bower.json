@@ -3,5 +3,11 @@
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4"
+  },
+  "resolutions": {
+    "moment": "~2.11.1"
+  },
+  "dependencies": {
+    "moment": "~2.11.1"
   }
 }

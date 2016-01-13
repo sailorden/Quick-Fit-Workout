@@ -3,11 +3,11 @@
     <div class='text-center'>
       <p class='i-did'> I did... </p>
       <div class='exercise-done-rep-container'>
-        <button class='flat-button button-shadow' ng-class='{"disabled-button no-button-shadow": customReps != null}' ng-disabled='customReps != null' ui-sref='home'>{{repGoal}}</button>
+        <button class='flat-button button-shadow' ng-class='{"disabled-button no-button-shadow": customReps != null}' ng-disabled='customReps != null' ng-click='recordReps(repGoal)'>{{repGoal}}</button>
       </div>
       <div class='exercise-done-nonrep-container'>
         <input type='number' min='0' value='customReps' ng-model='customReps' placeholder='{{repGoal}}'>
-        <button class='flat-button' ng-class='{"disabled-button": customReps == null}' ng-disabled='customReps == null' ui-sref='home'>Done</button>
+        <button class='flat-button' ng-class='{"disabled-button": customReps == null}' ng-disabled='customReps == null' ng-click='recordReps(customReps)'>Done</button>
       </div>
     </div>
   </ion-content>

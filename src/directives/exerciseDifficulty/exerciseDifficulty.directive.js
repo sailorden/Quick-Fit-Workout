@@ -4,12 +4,13 @@ angular.module('quickfit')
 
 .directive('qfExerciseDifficulty', qfExerciseDifficulty);
 
-function qfExerciseDifficulty() {
+qfExerciseDifficulty.$inject = ['$stateParams', 'User'];
+function qfExerciseDifficulty($stateParams, User) {
   return {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
-      scope.max = 25;
+      scope.max = User.getMax($stateParams.exercise);
     },
     templateUrl: 'directives/exerciseDifficulty/exerciseDifficulty.template.html'
   };

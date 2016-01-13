@@ -48,7 +48,8 @@ function config($stateProvider, $urlRouterProvider) {
       'exercise': {
         template: '<qf-exercise-difficulty></qf-exercise-difficulty>'
       }
-    }
+    },
+    cache: false,
   })
 
   .state('exercise.display', {
@@ -62,11 +63,12 @@ function config($stateProvider, $urlRouterProvider) {
       dummy: ($stateParams, Util) => {
         return Util.setReps($stateParams.difficulty);
       }
-    }
+    },
+    cache: false,
   })
 
   .state('exercise.done', {
-    url: '/done',
+    url: '/done/:difficulty',
     views: {
       'exercise': {
         template: '<qf-exercise-done></qf-exercise-done>'
