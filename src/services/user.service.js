@@ -9,6 +9,11 @@ function User() {
 
 // fake user data
   let user = {
+    settings: {
+      weightsOrBands: false,
+      pullupBar: false,
+      dailyNotificationTime: null
+    },
     maxes: [
       // {
         // exercise: 'Pushups',

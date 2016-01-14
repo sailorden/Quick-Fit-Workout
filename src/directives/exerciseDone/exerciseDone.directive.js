@@ -16,13 +16,14 @@ function qfExerciseDone($state, $stateParams, User, Util) {
         // still need to save reps to log
         User.updateTodaysLog({exercise: $stateParams.exercise, rep: repsDone});
         let currentMax = User.getMax($stateParams.exercise);
-        console.log('currentMax', currentMax);
-        console.log('reps done', repsDone);
+        // console.log('currentMax', currentMax);
+        // console.log('reps done', repsDone);
         if (currentMax < repsDone) {
-          console.log(`You beat your max!! ${currentMax} --> ${repsDone}`);
+          // console.log(`You beat your max!! ${currentMax} --> ${repsDone}`);
           User.updateMax($stateParams.exercise, {max: repsDone, date: moment().format('MM/DD/YYYY')});
-        } else if ($stateParams.difficulty === 'max')
-          console.log('You did not beat your max :(, better luck next time');
+        } else if ($stateParams.difficulty === 'max') {
+          // console.log('You did not beat your max :(, better luck next time');
+        }
         $state.go('home');
       };
     },

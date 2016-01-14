@@ -4,30 +4,59 @@ angular.module('quickfit')
 
 .factory('Workouts', Workouts);
 
-Workouts.$inject = [];
-function Workouts() {
+Workouts.$inject = ['User'];
+function Workouts(User) {
 
-  let workouts = [
-    '5 Minute Burn',
-    'Cardio',
-    'Full Body',
-    'Lower Body',
-    'Upper Body'
+  // let workouts = [
+  //   '5 Minute Burn',
+  //   'Cardio',
+  //   'Full Body',
+  //   'Lower Body',
+  //   'Upper Body'
+  // ];
+  // all exercises in the app:
+  //   pushups, crunches, lunges, squats, burpees, legLifts, _6Inches,
+  //   supermans, plank, jumpingJacks,
+  //   pullUps, bicepCurls, militaryPress, tricepExtension, armRaises
+  const workouts = {
+    '_5MinuteBurn': ['pushups', 'legLifts', 'lunges', 'squats', 'burpees'],
+    'Cardio': ['jumpingJacks', 'lunges', 'burpees', 'crunches', 'pushups'],
+    'fullBody': ['pushups', 'crunches', 'lunges', 'legLifts', '_6Inches', 'burpees'],
+    'legs': ['lunges', 'legLifts', 'burpees', 'squats'],
+    //'upperBody': ['pushups', ''],  - for resistance+pullbar only
+    'core': ['crunches', 'burpees', 'legLifts', 'supermans', '_6Inches', 'plank']
+  };
+  const bodyWeightIndieExercises = [
+    'pushups',
+    'crunches',
+    'lunges',
+    'burpees',
+    'legLifts',//??
+    'squats'
   ];
-  let exercises = [
-    'Pushups',
-    'Crunches',
-    'Pull Ups',
-    'Lunges',
-    'Jumping Jacks',
-    'Bicep Curls',
-    'Arms Raises',
-    'Military Press',
-    'Burpees',
-    'Leg Lifts'
+  const resistanceIndieExercises = [
+    'bicepCurls',
+    'armRaises',
+    'tricepExtension',
+    'militaryPress'
   ];
+  const pullupBarExercises = ['pullUps'];
+  // let exercises = [
+  //   'Pushups',
+  //   'Crunches',
+  //   'Pull Ups',
+  //   'Lunges',
+  //   'Jumping Jacks',
+  //   'Bicep Curls',
+  //   'Arms Raises',
+  //   'Military Press',
+  //   'Burpees',
+  //   'Leg Lifts'
+  // ];
   let workout = [];
   let exerciseCounter = 0;
+
+
 
   const service = {
     getWorkouts,
@@ -43,15 +72,20 @@ function Workouts() {
 
   function getWorkouts() { return workouts; }
 
-  function getExercises() { return exercises; }
+  function getExercises() {
+    let exercises = bodyWeightIndieExercises;
+    if (User.getUserSettings().weightsOrBands) exercises.concat(resistanceIndieExercises);
+    if (User.getUserSettings().pullupBar) exercises.concat(pullupBarExercises);
+    return exercises;
+  }
 
   function generateWorkout() {
     workout = [
-      { exercise: exercises[0], reps: 20, time: null },
-      { exercise: exercises[1], reps: 30, time: null },
+      { exercise: bodyWeightIndieExercises[0], reps: 20, time: null },
+      { exercise: bodyWeightIndieExercises[1], reps: 30, time: null },
       { exercise: 'Rest', reps: null, time: 10 },
-      { exercise: exercises[8], reps: 10, time: null },
-      { exercise: exercises[4], reps: null, time: 10 },
+      { exercise: bodyWeightIndieExercises[8], reps: 10, time: null },
+      { exercise: bodyWeightIndieExercises[4], reps: null, time: 10 },
       null
     ];
   }

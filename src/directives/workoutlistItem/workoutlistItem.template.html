@@ -1,7 +1,7 @@
 <li class='workout-list-item' ng-repeat='workout in workouts track by $index'>
   <!-- <div class='row no-padding'> -->
   <div class='row no-padding' style='background-color: {{colors[$index]}}'>
-    <span class='col col-80'>{{workout}}</span>
+    <span class='col col-80'>{{ workout | workoutName }}</span>
     <!-- <span class='col col-20 go-alt'>Go!</span> -->
     <!-- <span class='col col-20 go'>Go!</span> -->
     <span class='col col-20' style='background-color: {{convertColors("green", "rgb(255,165,0)", workouts.length)[$index]}}' ui-sref='workout.start({ workout: workout})'>Go!</span>

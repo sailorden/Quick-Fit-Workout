@@ -32,7 +32,8 @@ function config($stateProvider, $urlRouterProvider) {
 
   .state('home', {
     url: '/',
-    template: '<qf-home></qf-home>'
+    template: '<qf-home></qf-home>',
+    cache: false
   })
 
   .state('exercise', {
