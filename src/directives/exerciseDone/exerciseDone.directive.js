@@ -14,6 +14,7 @@ function qfExerciseDone($state, $stateParams, User, Util) {
       scope.printchanged = (num) => console.log(num);
       scope.recordReps = function(repsDone) {
         // still need to save reps to log
+        User.updateTodaysLog({exercise: $stateParams.exercise, rep: repsDone});
         let currentMax = User.getMax($stateParams.exercise);
         console.log('currentMax', currentMax);
         console.log('reps done', repsDone);
