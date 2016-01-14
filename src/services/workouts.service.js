@@ -17,7 +17,7 @@ function Workouts(User) {
   // all exercises in the app:
   //   pushups, crunches, lunges, squats, burpees, legLifts, _6Inches,
   //   supermans, plank, jumpingJacks,
-  //   pullUps, bicepCurls, militaryPress, tricepExtension, armRaises
+  //   pullUps, bicepCurls, militaryPress, tricepExtension, shoulerRaises
   const workouts = {
     '_5MinuteBurn': ['pushups', 'legLifts', 'lunges', 'squats', 'burpees'],
     'Cardio': ['jumpingJacks', 'lunges', 'burpees', 'crunches', 'pushups'],
@@ -36,7 +36,7 @@ function Workouts(User) {
   ];
   const resistanceIndieExercises = [
     'bicepCurls',
-    'armRaises',
+    'shoulderRaises',
     'tricepExtension',
     'militaryPress'
   ];
@@ -74,8 +74,8 @@ function Workouts(User) {
 
   function getExercises() {
     let exercises = bodyWeightIndieExercises;
-    if (User.getUserSettings().weightsOrBands) exercises.concat(resistanceIndieExercises);
-    if (User.getUserSettings().pullupBar) exercises.concat(pullupBarExercises);
+    if (User.getUserSettings().weightsOrBands) exercises = exercises.concat(resistanceIndieExercises);
+    if (User.getUserSettings().pullupBar) exercises = exercises.concat(pullupBarExercises);
     return exercises;
   }
 

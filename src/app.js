@@ -36,6 +36,11 @@ function config($stateProvider, $urlRouterProvider) {
     cache: false
   })
 
+  .state('settings', {
+    url: '/settings',
+    template: '<qf-settings></qf-settings>'
+  })
+
   .state('exercise', {
     url: '/exercise/:exercise',
     abstract: true,

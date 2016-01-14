@@ -10,9 +10,9 @@ function User() {
 // fake user data
   let user = {
     settings: {
-      weightsOrBands: false,
-      pullupBar: false,
-      dailyNotificationTime: null
+      weightsOrBands: true,
+      pullupBar: true
+      // dailyNotificationTime: null
     },
     maxes: [
       // {
@@ -72,7 +72,7 @@ function User() {
 
   const service = {
     getUserSettings,
-    updateUserSettings,
+    updateOneUserSetting,
     getMax,
     updateMax,
     getTodaysLog,
@@ -82,7 +82,7 @@ function User() {
 
 
   function getUserSettings() { return user.settings; }
-  function updateUserSettings(settings) { user.settings = settings; }
+  function updateOneUserSetting(settingKey, settingValue) { user.settings[settingKey] = settingValue; }
 
   // gets the latest user max number of reps
   function getMax(exercise) {
