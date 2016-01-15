@@ -1,6 +1,6 @@
 <ion-view>
   <ion-content scroll='false' class='back-yellow'>
-    <div class='workout-exercise-title'> {{workout.exercise}} </div>
+    <div class='workout-exercise-title'> {{workout.exercise | workoutName}} </div>
     <div class='workout-exercise-reptime' ng-if='workout.reps'> {{workout.reps}}</div>
     <div class='workout-exercise-reptime' ng-if='workout.time'>
       <qf-timer></qf-timer>

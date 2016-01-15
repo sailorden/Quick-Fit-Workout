@@ -4,12 +4,18 @@ angular.module('quickfit')
 
 .directive('qfWorkoutStart', qfWorkoutStart);
 
-qfWorkoutStart.$inject = ['$stateParams', 'Workouts'];
-function qfWorkoutStart($stateParams, Workouts) {
+qfWorkoutStart.$inject = ['$stateParams', '$state', 'Workouts', 'User'];
+function qfWorkoutStart($stateParams, $state, Workouts, User) {
   return {
     restrict: 'E',
     scope: {},
-    link: () => Workouts.generateWorkout($stateParams.workout),
+    link: (scope, elem, attrs) => {
+      Workouts.generateWorkout($stateParams.workout);
+      scope.startWorkout = () => {
+        User.recordWorkoutStarted($stateParams.workout);
+        $state.go('workout.exercising');
+      }
+    },
     templateUrl: 'directives/workoutStart/workoutStart.template.html'
   };
 }

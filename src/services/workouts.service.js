@@ -64,6 +64,7 @@ function Workouts(User) {
     generateWorkout,
     getWorkout,
     getNextInWorkout,
+    isWorkoutOver,
     resetCounter
   };
   return service;
@@ -84,7 +85,7 @@ function Workouts(User) {
       { exercise: bodyWeightIndieExercises[0], reps: 20, time: null },
       { exercise: bodyWeightIndieExercises[1], reps: 30, time: null },
       { exercise: 'Rest', reps: null, time: 10 },
-      { exercise: bodyWeightIndieExercises[8], reps: 10, time: null },
+      { exercise: bodyWeightIndieExercises[5], reps: 10, time: null },
       { exercise: bodyWeightIndieExercises[4], reps: null, time: 10 },
       null
     ];
@@ -94,6 +95,10 @@ function Workouts(User) {
 
   function getNextInWorkout() {
     return workout[exerciseCounter++];
+  }
+
+  function isWorkoutOver() {
+    return exerciseCounter === workout.length - 1;
   }
 
   function resetCounter() { exerciseCounter = 0; }

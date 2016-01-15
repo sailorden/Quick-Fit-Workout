@@ -53,15 +53,9 @@ function User() {
         exercises: {
           exerciseName: '' // space-delimited string of rep values
         },
-        //exercises: [
-        //  {
-        //    exercise: '',   // one object per day for each exercise
-        //    sets: ''        // comma-delimited string of rep values
-        //  }
-        //],  // alt exercise: [date:'', exercises:{ exerciseName: 'set1,set2,etc'}]
         workouts: [
           {
-            workout: '',      // one object per day for each workout
+            workout: '',      // one object per day for each workout type
             timesStarted: 0,
             timesCompleted: 0
           }
@@ -75,6 +69,7 @@ function User() {
     updateOneUserSetting,
     getMax,
     updateMax,
+    recordWorkoutStarted,
     getTodaysLog,
     updateTodaysLog
   };
@@ -84,7 +79,7 @@ function User() {
   function getUserSettings() { return user.settings; }
   function updateOneUserSetting(settingKey, settingValue) { user.settings[settingKey] = settingValue; }
 
-  // gets the latest user max number of reps
+  // gets the latest max number of reps for an exercise
   function getMax(exercise) {
     let maxIndex = user.maxes.findIndex((el) => el.exercise === exercise);
     if (maxIndex === -1) user.maxes.push({exercise: exercise, max: []});
@@ -98,34 +93,62 @@ function User() {
       el.exercise === exercise)].max.push(maxObj);
   }
 
+  function recordWorkoutStarted(workoutName) {
+    let todaysLog = findTodaysLog();
+    let thisWorkoutsLogIndex = findThisWorkoutsLogIndex(todaysLog, workoutName);
+    if (thisWorkoutsLogIndex === -1) {
+      todaysLog.workouts.push({
+        workout: workoutName,
+        timesStarted: 1,
+        timesCompleted: 0
+      });
+    } else todaysLog.workouts[thisWorkoutsLogIndex].timesStarted++;
+  }
+
   function getTodaysLog() {
-    let todaysIndex = user.log.findIndex((entry) => {
-      return entry.date === moment().format('MM/DD/YYYY');
-    });
+    let todaysIndex = findTodaysLogEntryIndex();
     return (todaysIndex === -1) ? false : user.log[todaysIndex];
   }
 
   // updateObj takes the form { exercise: 'exerciseName', rep: repValueNum }
-  // for workout --> { }??
-  function updateTodaysLog(updateObj) {
-    let todaysIndex = user.log.findIndex((entry) => {
-      return entry.date === moment().format('MM/DD/YYYY');
-    });
-    // if today doesn't exist in log, create it
-    if (todaysIndex === -1) {
-      user.log.push({date: moment().format('MM/DD/YYYY'), exercises: {}, workouts: []});
-      todaysIndex = user.log.length-1;
-    }
-    if (updateObj.hasOwnProperty('exercise')) {
+  // for workout --> 'workoutName'
+  function updateTodaysLog(updateData) {
+    let todaysLog = findTodaysLog();
+    // update exercise log
+    if (typeof updateData !== 'string') {
       // if todays log doesn't have that exercise yet, add it.
-      if (!user.log[todaysIndex].exercises.hasOwnProperty(updateObj.exercise))
-        user.log[todaysIndex].exercises[updateObj.exercise] = '';
-      user.log[todaysIndex].exercises[updateObj.exercise] += `${updateObj.rep} `;
-    } else if (updateObj.hasOwnProperty('workout')) {
-      ;
+      if (!todaysLog.exercises.hasOwnProperty(updateData.exercise))
+        todaysLog.exercises[updateData.exercise] = '';
+      todaysLog.exercises[updateData.exercise] += `${updateData.rep} `;
+    } else {    // update workout log
+      let workoutIndexForToday = findThisWorkoutsLogIndex(todaysLog, updateData);
+      todaysLog.workouts[workoutIndexForToday].timesCompleted++;
     }
     console.log('user object', user);
   }
 
+
+/* PRIVATE FACTORY METHODS */
+
+  function createLogEntryForToday() {
+    user.log.push({date: moment().format('MM/DD/YYYY'), exercises: {}, workouts: []});
+  }
+
+  function findTodaysLogEntryIndex() {
+    return user.log.findIndex((entry) => entry.date === moment().format('MM/DD/YYYY'));
+  }
+
+  function findTodaysLog() {
+    let todaysIndex = findTodaysLogEntryIndex();
+    if (todaysIndex === -1) {
+      createLogEntryForToday();
+      todaysIndex = user.log.length - 1;
+    }
+    return user.log[todaysIndex];
+  }
+
+  function findThisWorkoutsLogIndex(todaysLog, workoutName) {
+    return todaysLog.workouts.findIndex((entry) => entry.workout === workoutName);
+  }
 
 }
