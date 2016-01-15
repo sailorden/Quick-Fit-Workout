@@ -17,15 +17,18 @@
 }
 
 .back-green {
-  background-color: rgb(38,202,38);//#26CA26;
+  background-color: rgb(38,202,38) !important; //#26CA26;
 }
 
 .back-blue {
-  background-color: rgb(42,184,255);//#2AB8FF;
+  background-color: rgb(42,184,255) !important; //#2AB8FF;
 }
 
 .back-yellow {
-  background-color: yellow;
+  background-color: yellow !important;
+}
+.back-red {
+  background-color: red !important;
 }
 
 .workout-list-item {
@@ -234,4 +237,31 @@
   font-size: 4vh;
   line-height: 1em;
   margin-top: 4vh;
+}
+
+.workout-done-p {
+  font-size: 10vw;
+  line-height: 1em;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.completed-workout-container {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  margin-top: 10vh;
+}
+
+.failed-workout-container {
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+  margin-top: 30vh;
+}
+
+.workout-done-button {
+  font-size: 4vh;
+  height: 10vh;
+  width: 80vw;
 }

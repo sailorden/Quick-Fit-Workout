@@ -1,11 +1,13 @@
-<ion-content class='back-yellow'>
-  <p>
-    How was your workout?
-  </p>
-  <div>
-    <button ng-click='completed()'>I did the whole thing!</button>
-  </div>
-  <div>
-    <button ui-sref='home'>I couldn't quite do it all.</button>
-  </div>
-</ion-content>
+<ion-view>
+  <ion-content class='back-yellow' scroll='false'>
+    <p class='workout-done-p'>
+      How was your workout?
+    </p>
+    <div class='completed-workout-container'>
+      <button class='workout-done-button flat-button button-shadow back-green' ng-click='completed()'>I did the whole workout!</button>
+    </div>
+    <div class='failed-workout-container'>
+      <button class='workout-done-button flat-button button-shadow back-red' ui-sref='home'>I couldn't quite do it all.</button>
+    </div>
+  </ion-content>
+</ion-view>
