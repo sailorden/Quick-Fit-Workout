@@ -289,7 +289,7 @@
 
 .exercise-image-container {
   text-align: center;
-  height: 63vh;
+  height: 53vh;
   background-color: darkturquoise;
 
   img {
@@ -298,20 +298,39 @@
   }
 }
 
+.exercise-desc-harder-options {
+  height: 14vh;
+  background-color: darkturquoise;
+  color: black;
+
+  div {
+    text-align: center;
+    font-size: 4vh;
+    padding-top: 1vh;
+  }
+
+  p {
+    text-align: center;
+    margin-top: 2vh;
+    font-size: 3vh;
+    line-height: 1em;
+  }
+}
+
 .exercise-description-close-container {
   position: absolute;
   width: 100%;
   text-align: center;
-  top: 63vh;
+  top: 67vh;
 
   button {
     background-color: white;
     color: black;
-    font-size: 5vh;
-    padding: 4vh;
+    font-size: 4vh;
+    padding: 3vh;
     line-height: 1em;
     width: 100%;
-    height: 14vh;
+    height: 10vh;
   }
 }
 /* END OF EXERCISE DESCRIPTION MODAL */

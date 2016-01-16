@@ -6,6 +6,10 @@
     <div class='exercise-image-container'>
       <img ng-src='{{imagePath}}'>
     </div>
+    <div class='exercise-desc-harder-options'>
+      <div ng-if='hardVersion'> Make it Harder </div>
+      <p ng-if='hardVersion' ng-bind-html='hardVersion'></p>
+    </div>
     <div class='exercise-description-close-container'>
       <button class='flat-button' ng-click='closeModal()'>Close</button>
     </div>

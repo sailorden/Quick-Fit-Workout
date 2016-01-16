@@ -11,9 +11,13 @@ function qfExerciselistItem($ionicModal) {
     scope: {
       exercise: '=',
       exerciseColor: '=',
-      goColor: '='
+      goColor: '=',
+      harderOptions: '='
     },
     link: (scope, elem, attrs) => {
+      if (scope.harderOptions.hasOwnProperty(scope.exercise))
+        scope.hardVersion = scope.harderOptions[scope.exercise];
+
       $ionicModal.fromTemplateUrl('directives/exerciselistItem/exerciseDescriptionModal.html', {
         scope,
         animation: 'slide-in-up'

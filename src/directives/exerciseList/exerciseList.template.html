@@ -1,6 +1,6 @@
 <div class='home-list-header' style='background-color: {{headerColor}}'> Single Exercises </div>
 <ul>
   <li class='workout-list-item' ng-repeat='exercise in exercises track by $index'>
-    <qf-exerciselist-item exercise='exercise' exercise-color='exerciseColors[$index]' go-color='goColors[$index]'></qf-exerciselist-item>
+    <qf-exerciselist-item exercise='exercise' exercise-color='exerciseColors[$index]' go-color='goColors[$index]' harder-options='harderOptions'></qf-exerciselist-item>
   </li>
 </ul>

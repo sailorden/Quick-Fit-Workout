@@ -34,6 +34,13 @@ function Workouts(User) {
     'militaryPress'
   ];
   const pullupBarExercises = ['pullUps'];
+  const harderExerciseOptions = {
+    pushups: 'Put your feet up on a chair<br>Slow them down',
+    lunges: 'Do jumping lunges',
+    burpees: 'Do a jump when coming back up<br>Do a pushup when going down',
+    squats: 'Do jumping squats',
+    pullUps: 'Spread your hands to a wide grip'
+  };
 
   let workout = [];
   let exerciseCounter = 0;
@@ -50,7 +57,8 @@ function Workouts(User) {
     getWorkout,
     getNextInWorkout,
     isWorkoutOver,
-    resetCounter
+    resetCounter,
+    getHarderExerciseOptions
   };
   return service;
 
@@ -104,5 +112,7 @@ function Workouts(User) {
   }
 
   function resetCounter() { exerciseCounter = 0; }
+
+  function getHarderExerciseOptions() { return harderExerciseOptions; }
 
 }
