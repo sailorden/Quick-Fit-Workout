@@ -58,7 +58,7 @@ function Workouts(User) {
   // returns last assigned number of reps
   function getReps() { return reps; }
 
-  // assigns new number of reps, returns it
+  // assigns new number of reps for medium and hard difficulties, returns it
   function setReps(exercise, difficulty) {
     let low, high;
     if (difficulty === 'medium') {

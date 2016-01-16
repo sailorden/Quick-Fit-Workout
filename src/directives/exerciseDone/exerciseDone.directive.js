@@ -10,9 +10,8 @@ function qfExerciseDone($state, $stateParams, User, Workouts) {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
-      scope.repGoal = Workouts.getReps();
       scope.difficulty = $stateParams.difficulty;
-      scope.printchanged = (num) => console.log(num);
+      if (scope.difficulty !== 'max') scope.repGoal = Workouts.getReps();
       scope.recordReps = function(repsDone) {
         // still need to save reps to log
         User.updateTodaysLog({exercise: $stateParams.exercise, rep: repsDone});

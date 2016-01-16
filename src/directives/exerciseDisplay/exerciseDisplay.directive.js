@@ -12,7 +12,7 @@ function qfExerciseDisplay(Workouts, $stateParams, User) {
     link: (scope, elem, attrs) => {
       scope.difficulty = $stateParams.difficulty;
       scope.currentMax = User.getMax($stateParams.exercise);
-      scope.repGoal = Workouts.getReps();
+      if (scope.difficulty !== 'max') scope.repGoal = Workouts.getReps();
     },
     templateUrl: 'directives/exerciseDisplay/exerciseDisplay.template.html'
   };

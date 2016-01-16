@@ -67,7 +67,8 @@ function config($stateProvider, $urlRouterProvider) {
     },
     resolve: {
       dummy: ($stateParams, Workouts) => {
-        return Workouts.setReps($stateParams.exercise, $stateParams.difficulty);
+        if ($stateParams.difficulty !== 'max')
+          return Workouts.setReps($stateParams.exercise, $stateParams.difficulty);
       }
     },
     cache: false,
