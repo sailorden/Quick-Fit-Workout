@@ -1,17 +1,17 @@
 <ion-modal-view>
   <ion-header-bar class='exercise-description-modal-header-bar'>
-    <h1 class='title'>{{exercise | workoutName}}</h1>
+    <h1 class='title'>{{::exercise | workoutName}}</h1>
   </ion-header-bar>
   <ion-content style='top: 9vh' scroll='false'>
     <div class='exercise-image-container'>
-      <img ng-src='{{imagePath}}'>
+      <img ng-src='{{::imagePath}}'>
     </div>
     <div class='exercise-desc-harder-options'>
-      <div ng-if='hardVersion'> Make it Harder </div>
-      <p ng-if='hardVersion' ng-bind-html='hardVersion'></p>
+      <div ng-if='::hardVersion'> Make it Harder </div>
+      <p ng-if='::hardVersion' ng-bind-html='::hardVersion'></p>
     </div>
     <div class='exercise-description-close-container'>
-      <button class='flat-button' ng-click='closeModal()'>Close</button>
+      <button class='flat-button' ng-click='::closeModal()'>Close</button>
     </div>
   </ion-content>
 </ion-modal-view>

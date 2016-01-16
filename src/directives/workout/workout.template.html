@@ -1,7 +1,7 @@
 <ion-view>
   <ion-content scroll='false'>
     <qf-back-button ng-if='back'></qf-back-button>
-    <header class='workout-header'>{{workout | workoutName }}</header>
+    <header class='workout-header'>{{::workout | workoutName }}</header>
     <ion-nav-view name='workout'></ion-nav-view>
   </ion-content>
 </ion-view>
