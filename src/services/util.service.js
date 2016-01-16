@@ -7,23 +7,11 @@ angular.module('quickfit')
 Util.$inject = [];
 function Util() {
 
-  let reps = null;
-
   const service = {
-    getReps,
-    setReps,
     convertColors
   };
   return service;
 
-
-  function getReps() {
-    return reps;
-  }
-
-  function setReps(difficulty) {
-    reps = 25;
-  }
 
   function convertColors(colorString, baseColor, length) {
     let rgbIndex, baseColorArr, rgbArr, newColor, colorsArr = [];

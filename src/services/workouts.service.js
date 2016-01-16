@@ -7,13 +7,6 @@ angular.module('quickfit')
 Workouts.$inject = ['User'];
 function Workouts(User) {
 
-  // let workouts = [
-  //   '5 Minute Burn',
-  //   'Cardio',
-  //   'Full Body',
-  //   'Lower Body',
-  //   'Upper Body'
-  // ];
   // all exercises in the app:
   //   pushups, crunches, lunges, squats, burpees, legLifts, _6Inches,
   //   supermans, plank, jumpingJacks,
@@ -41,24 +34,16 @@ function Workouts(User) {
     'militaryPress'
   ];
   const pullupBarExercises = ['pullUps'];
-  // let exercises = [
-  //   'Pushups',
-  //   'Crunches',
-  //   'Pull Ups',
-  //   'Lunges',
-  //   'Jumping Jacks',
-  //   'Bicep Curls',
-  //   'Arms Raises',
-  //   'Military Press',
-  //   'Burpees',
-  //   'Leg Lifts'
-  // ];
+
   let workout = [];
   let exerciseCounter = 0;
+  let reps = null;
 
 
 
   const service = {
+    getReps,
+    setReps,
     getWorkouts,
     getExercises,
     generateWorkout,
@@ -70,6 +55,24 @@ function Workouts(User) {
   return service;
 
 
+  // returns last assigned number of reps
+  function getReps() { return reps; }
+
+  // assigns new number of reps, returns it
+  function setReps(exercise, difficulty) {
+    let low, high;
+    if (difficulty === 'medium') {
+      low = 0.4;
+      high = 0.65;
+    } else if (difficulty === 'hard') {
+      low = 0.7;
+      high = 0.91;
+    }
+    let max = User.getMax(exercise);
+    reps = Math.floor( (low*max) + (Math.random() * (high*max - low*max)) );
+    console.log('reps set');
+    return reps;
+  }
 
   function getWorkouts() { return workouts; }
 
@@ -102,4 +105,5 @@ function Workouts(User) {
   }
 
   function resetCounter() { exerciseCounter = 0; }
+
 }

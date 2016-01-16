@@ -4,13 +4,13 @@ angular.module('quickfit')
 
 .directive('qfExerciseDone', qfExerciseDone);
 
-qfExerciseDone.$inject = ['$state', '$stateParams', 'User', 'Util'];
-function qfExerciseDone($state, $stateParams, User, Util) {
+qfExerciseDone.$inject = ['$state', '$stateParams', 'User', 'Workouts'];
+function qfExerciseDone($state, $stateParams, User, Workouts) {
   return {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
-      scope.repGoal = Util.getReps();
+      scope.repGoal = Workouts.getReps();
       scope.printchanged = (num) => console.log(num);
       scope.recordReps = function(repsDone) {
         // still need to save reps to log
