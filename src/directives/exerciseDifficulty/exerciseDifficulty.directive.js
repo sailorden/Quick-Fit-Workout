@@ -11,8 +11,6 @@ function qfExerciseDifficulty($stateParams, User) {
     scope: {},
     link: (scope, elem, attrs) => {
       scope.max = User.getMax($stateParams.exercise);
-      console.log(scope.max);
-      scope.bob = () => console.log('click worked');
     },
     templateUrl: 'directives/exerciseDifficulty/exerciseDifficulty.template.html'
   };

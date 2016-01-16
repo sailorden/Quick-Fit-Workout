@@ -11,6 +11,7 @@ function qfExerciseDone($state, $stateParams, User, Workouts) {
     scope: {},
     link: (scope, elem, attrs) => {
       scope.repGoal = Workouts.getReps();
+      scope.difficulty = $stateParams.difficulty;
       scope.printchanged = (num) => console.log(num);
       scope.recordReps = function(repsDone) {
         // still need to save reps to log

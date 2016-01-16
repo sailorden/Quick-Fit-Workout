@@ -70,7 +70,6 @@ function Workouts(User) {
     }
     let max = User.getMax(exercise);
     reps = Math.floor( (low*max) + (Math.random() * (high*max - low*max)) );
-    console.log('reps set');
     return reps;
   }
 

@@ -10,10 +10,9 @@ function qfExerciseDisplay(Workouts, $stateParams, User) {
     restrict: 'E',
     scope: {},
     link: (scope, elem, attrs) => {
-      console.log('in the display')
       scope.difficulty = $stateParams.difficulty;
       scope.currentMax = User.getMax($stateParams.exercise);
-      scope.repGoal = Workouts.setReps();
+      scope.repGoal = Workouts.getReps();
     },
     templateUrl: 'directives/exerciseDisplay/exerciseDisplay.template.html'
   };

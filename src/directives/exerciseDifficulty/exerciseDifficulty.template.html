@@ -7,7 +7,7 @@
       </p>
       <button class='flat-button difficulty-button medium-button' ui-sref='exercise.display({difficulty: "medium"})' ng-if='max'>Medium</button>
       <button class='flat-button difficulty-button hard-button' ui-sref='exercise.display({difficulty: "hard"})' ng-if='max'>Hard</button>
-      <button class='flat-button difficulty-button max-button' ng-click='bob()' ui-sref='exercise.display({difficulty: "max"})'>
+      <button class='flat-button difficulty-button max-button' ui-sref='exercise.display({difficulty: "max"})'>
         Max 
         <span class='max-display' ng-if='max'>({{max}})</span>
       </button>

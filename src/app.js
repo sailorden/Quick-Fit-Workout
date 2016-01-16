@@ -66,8 +66,8 @@ function config($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
-      dummy: ($stateParams, Util) => {
-        return Util.setReps($stateParams.difficulty);
+      dummy: ($stateParams, Workouts) => {
+        return Workouts.setReps($stateParams.exercise, $stateParams.difficulty);
       }
     },
     cache: false,
