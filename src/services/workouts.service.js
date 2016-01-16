@@ -29,7 +29,7 @@ function Workouts(User) {
   ];
   const resistanceIndieExercises = [
     'bicepCurls',
-    'shoulderRaises',
+    'armRaises',
     'tricepExtension',
     'militaryPress'
   ];
