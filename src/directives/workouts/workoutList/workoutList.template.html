@@ -2,5 +2,7 @@
   Full Workouts
 </div>
 <ul>
-  <qf-workoutlist-item list='list' color='headerColor' color-string='green'></qf-workoutlist-item>
+  <li class='workout-list-item' ng-repeat='workout in ::workouts track by $index'>
+    <qf-workoutlist-item workout='workout' workout-color='::workoutColors[$index]' go-color='::goColors[$index]'></qf-workoutlist-item>
+  </li>
 </ul>

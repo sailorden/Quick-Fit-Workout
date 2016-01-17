@@ -9,13 +9,9 @@ function qfWorkoutlistItem(Util) {
   return {
     restrict: 'E',
     scope: {
-      workouts: '=list',
-      color: '=',
-      colorString: '@',
-    },
-    link: (scope, elem, attrs) => {
-      scope.convertColors = Util.convertColors;
-      scope.colors = Util.convertColors(scope.colorString, scope.color, scope.workouts.length);
+      workout: '=',
+      workoutColor: '=',
+      goColor: '='
     },
     templateUrl: 'directives/workouts/workoutlistItem/workoutlistItem.template.html'
   };
