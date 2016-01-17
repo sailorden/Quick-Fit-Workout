@@ -25,6 +25,13 @@ var paths = {
 
 // DEVELOPMENT
 
+gulp.task('clean', function(db) {
+  del('./www').then(function(delPaths) {
+    console.log('Deleted:\n', delPaths.join('\n'), '\n');
+    cb();
+  });
+});
+
 gulp.task('default', ['inject']);
 
 gulp.task('sass', ['copy-lib', 'clean-css'], function(done) {
@@ -52,7 +59,7 @@ gulp.task('babel', ['clean-js'], function() {
 });
 
 gulp.task('copyHtmlImg', ['clean-html'], function() {
-  return gulp.src(['./src/**/*.html', './src/img', './src/img/**/*'])
+  return gulp.src(['./src/**/*.html', './src/img', './src/img/**/*', './src/audio', './src/audio/**/*'])
     .pipe(copy('./www', { prefix: 1 }));
 });
 
