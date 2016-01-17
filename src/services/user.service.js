@@ -4,8 +4,8 @@ angular.module('quickfit')
 
 .factory('User', User);
 
-User.$inject = [];
-function User() {
+User.$inject = ['_'];
+function User(_) {
 
 // fake user data
   let user = {
@@ -81,16 +81,19 @@ function User() {
 
   // gets the latest max number of reps for an exercise
   function getMax(exercise) {
-    let maxIndex = user.maxes.findIndex((el) => el.exercise === exercise);
+    // let maxIndex = user.maxes.findIndex((el) => el.exercise === exercise);
+    let maxIndex = _.findIndex(user.maxes, (el) => el.exercise === exercise);
     if (maxIndex === -1) user.maxes.push({exercise: exercise, max: []});
-    let maxArray = user.maxes.find((el) => el.exercise === exercise).max;
+    let maxArray = _.find(user.maxes, (el) => el.exercise === exercise).max;
+    // let maxArray = user.maxes.find((el) => el.exercise === exercise).max;
     return (maxArray[0]) ? maxArray.slice(-1)[0].max : 0;
   }
 
   // maxObj argument should be of the form {max=number, date='MM/DD/YYYY'}
   function updateMax(exercise, maxObj) {
-    user.maxes[user.maxes.findIndex((el) =>
-      el.exercise === exercise)].max.push(maxObj);
+    user.maxes[_.findIndex(user.maxes, (el) => el.exercise === exercise)].max.push(maxObj);
+    // user.maxes[user.maxes.findIndex((el) =>
+    //   el.exercise === exercise)].max.push(maxObj);
   }
 
   function recordWorkoutStarted(workoutName) {
@@ -135,7 +138,8 @@ function User() {
   }
 
   function findTodaysLogEntryIndex() {
-    return user.log.findIndex((entry) => entry.date === moment().format('MM/DD/YYYY'));
+    return _.findIndex(user.log, (entry) => entry.date === moment().format('MM/DD/YYYY'));
+    // return user.log.findIndex((entry) => entry.date === moment().format('MM/DD/YYYY'));
   }
 
   function findTodaysLog() {
@@ -148,7 +152,8 @@ function User() {
   }
 
   function findThisWorkoutsLogIndex(todaysLog, workoutName) {
-    return todaysLog.workouts.findIndex((entry) => entry.workout === workoutName);
+    return _.findIndex(todaysLog.workouts, (entry) => entry.workout === workoutName);
+    // return todaysLog.workouts.findIndex((entry) => entry.workout === workoutName);
   }
 
 }
