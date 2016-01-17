@@ -13,6 +13,8 @@ function qfSettingslistItem(User) {
       settingValue: '='
     },
     link: (scope, elem, attrs) => {
+      if (scope.setting === 'weightsOrBands') scope.settingDisplay = 'I have weights/resistance-bands';
+      else if (scope.setting === 'pullupBar') scope.settingDisplay = 'I have a pullup bar available';
       scope.updateSettings = (setting, settingValue) => {
         User.updateOneUserSetting(setting, settingValue);
       };
